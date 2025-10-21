@@ -4,7 +4,7 @@
 使用maven依赖导入
 ```xml
 <dependency>
-    <groupId>com.x7sy</groupId>
+    <groupId>io.github.x7sdk</groupId>
     <artifactId>x7sdk-java</artifactId>
     <version>1.0.0</version>
 </dependency>
