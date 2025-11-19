@@ -6,7 +6,7 @@
 <dependency>
     <groupId>io.github.x7sdk</groupId>
     <artifactId>x7sdk-java</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 ## 注意事项
