@@ -3,10 +3,15 @@ package game;
 import com.x7.sdk.client.X7Client;
 import com.x7.sdk.model.GameRoleInfo;
 import com.x7.sdk.model.request.GameRoleReportResultVerifyRequest;
+import com.x7.sdk.model.request.GetGameRoleInfoQueryEncryptionRequest;
 import com.x7.sdk.model.request.GetGameRoleReportSignRequest;
+import com.x7.sdk.model.request.MethodCommonRespVerifyRequestBO;
 import com.x7.sdk.model.response.GameRoleReportResultVerifyResponse;
 import com.x7.sdk.model.response.GetGameRoleReportSignResponse;
+import com.x7.sdk.model.response.MethodCommonReqResponse;
+import com.x7.sdk.model.response.SignatureVerifyCommonResponse;
 import com.x7.sdk.service.impl.GameInfoServiceImpl;
+import java.util.Arrays;
 import org.junit.Test;
 
 public class GameInfoServiceTest {
@@ -66,5 +71,43 @@ public class GameInfoServiceTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void encryptGameRoleInfoQueryRequest() {
+        try {
+            X7Client client = new X7Client(x7PublicKey, gamePrivate);
+            GameInfoServiceImpl gameInfoService = client.getGameInfoService();
+
+            GetGameRoleInfoQueryEncryptionRequest request = new GetGameRoleInfoQueryEncryptionRequest();
+            request.setAppKey("0b9ce7b64b02fb17cc948c0b9a6eb462");
+            request.setGameType("client");
+            request.setReqTime(new java.util.Date().toInstant().toString());
+            // 设置角色信息
+            request.setRoleId("role123");
+            request.setServerId("server1");
+            request.setGuids(Arrays.asList("71268837"));
+
+            MethodCommonReqResponse response = gameInfoService.encryptGameRoleInfoQueryRequest(request);
+            System.out.println(response);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void decryptGameRoleInfoQueryResponse() {
+        X7Client client = new X7Client(x7PublicKey, gamePrivate);
+        GameInfoServiceImpl gameInfoService = client.getGameInfoService();
+
+        MethodCommonRespVerifyRequestBO request = new MethodCommonRespVerifyRequestBO();
+        request.setAppkey("0b9ce7b64b02fb17cc948c0b9a6eb462");
+        request.setGameType("client");
+        request.setRespTime("2025-12-07T22:39:29+0800");
+        request.setBizResp("{\"respCode\":\"FAIL\",\"respMsg\":\"角色信息不存在（RequestId: 59260A61-AAD0-0769-D962-910CA55AA057）\"}");
+        request.setSignature("IMjQ4QENOszR4QntyJuZix6ZDeCLOrqrIcJTebQNsMLa/74DWO+2SFc7zDR3E1cDmCdXLrLnLHAIF47NL95cF0ij+6W3ASke6KRHu1//HtAg3b50sKtbH/rJL6iwnDt9r8cLaQSAqugQTJ/N+0gGVsgdmP/938KCAdNeBP4JjSw=");
+
+        SignatureVerifyCommonResponse response = gameInfoService.decryptGameRoleInfoQueryResponse(request);
+        System.out.println(response);
     }
 }
