@@ -6,7 +6,7 @@
 <dependency>
     <groupId>io.github.x7sdk</groupId>
     <artifactId>x7sdk-java</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 ## 注意事项
@@ -17,6 +17,8 @@
 5. 请参考小7官方文档，了解各个接口服务端相关参数和流程：https://docs.x7sy.com/#/README
 6. 请注意接口调用的频率限制，避免触发小7的防刷机制。
 7. 该sdk会引入并使用`commons-codec`、`fastjson`两个第三方库，请确保这些依赖能够正确引入，该两个第三方库已设置为目前稳定版本，如果出现不兼容情况，请及时反馈。
+8. java sdk 所提供的方法，主要是封装请求参数加密结果以及响应结果验签，游戏方在调用相关接口时，可使用相关方法生成请求参数的加密结果，使用该结果来调用相对应的接口，游戏方在接收到接口返回结果时，可使用相关方法验签，验签成功后，可安全使用接口返回的结果。
+
 
 
 ## 使用方法简述

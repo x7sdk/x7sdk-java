@@ -32,7 +32,6 @@ public class IpServiceImpl implements IpService {
         try {
             JSONObject roleJson = new JSONObject();
             roleJson.put("ipType", request.getIpType());
-            roleJson.put("ipList", request.getIpList());
             // 生成签名payload
             String payload = String.format(PAYLOAD_TEMPLATE,
                     MethodName.X7_IP_WHITE_LIST_QUERY.getMethodName(),

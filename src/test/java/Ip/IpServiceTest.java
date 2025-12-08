@@ -26,7 +26,6 @@ public class IpServiceTest {
             request.setGameType("client");
             request.setReqTime(new java.util.Date().toInstant().toString());
             request.setIpType("client");
-            request.setIpList(Arrays.asList("192.168.1.1", "192.168.1.2"));
 
             MethodCommonReqResponse response = ipService.encryptIpWhiteListRequest(request);
             System.out.println(response);

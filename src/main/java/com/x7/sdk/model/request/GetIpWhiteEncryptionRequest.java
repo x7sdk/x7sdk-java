@@ -1,7 +1,6 @@
 package com.x7.sdk.model.request;
 
 import com.x7.sdk.model.base.EncryptionBaseRequest;
-import java.util.List;
 import java.util.Objects;
 
 public class GetIpWhiteEncryptionRequest extends EncryptionBaseRequest {
@@ -11,15 +10,6 @@ public class GetIpWhiteEncryptionRequest extends EncryptionBaseRequest {
      */
     private String ipType;
 
-    private List<String> ipList;
-
-    public List<String> getIpList() {
-        return ipList;
-    }
-
-    public void setIpList(List<String> ipList) {
-        this.ipList = ipList;
-    }
 
     public String getIpType() {
         return ipType;
@@ -38,19 +28,18 @@ public class GetIpWhiteEncryptionRequest extends EncryptionBaseRequest {
             return false;
         }
         GetIpWhiteEncryptionRequest that = (GetIpWhiteEncryptionRequest) o;
-        return Objects.equals(ipType, that.ipType) && Objects.equals(ipList, that.ipList);
+        return Objects.equals(ipType, that.ipType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), ipType, ipList);
+        return Objects.hash(super.hashCode(), ipType);
     }
 
     @Override
     public String toString() {
         return "GetIpWhiteEncryptionRequest{" +
                 "ipType='" + ipType + '\'' +
-                ", ipList=" + ipList +
                 '}';
     }
 }
