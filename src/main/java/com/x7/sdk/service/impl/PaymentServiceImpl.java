@@ -60,6 +60,9 @@ public class PaymentServiceImpl implements PaymentService {
         return response;
     }
 
+    /**
+     * 订单回调验证签名
+     */
     @Override
     public PaymentOrderCallbackVerifyResponse getPaymentOrderCallbackVerify(PaymentOrderCallbackVerifyRequest request) {
         PaymentOrderCallbackVerifyResponse response = new PaymentOrderCallbackVerifyResponse();
@@ -79,6 +82,7 @@ public class PaymentServiceImpl implements PaymentService {
             throw new RuntimeException("Signature verification failed", e);
         }
     }
+
 
 
     /**

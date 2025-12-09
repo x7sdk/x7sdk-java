@@ -7,7 +7,7 @@
     <!-- 项目基本信息 -->
     <groupId>io.github.x7sdk</groupId>
     <artifactId>x7sdk-java</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>jar</packaging>
 
     <name>x7sdk-java</name>

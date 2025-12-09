@@ -3,23 +3,18 @@ package x7Mall;
 import com.x7.sdk.client.X7Client;
 import com.x7.sdk.model.GameRoleInfo;
 import com.x7.sdk.model.IssuedProp;
-import com.x7.sdk.model.request.GetGameRoleReportSignRequest;
 import com.x7.sdk.model.request.GetMallEntranceEncryptionRequest;
 import com.x7.sdk.model.request.GetMallIssuedPropsEncryption;
 import com.x7.sdk.model.request.GetMallOrderNotifyEncryptionRequest;
 import com.x7.sdk.model.request.GetMallQueryPropsEncryption;
 import com.x7.sdk.model.request.GetMallRoleEncryptionRequest;
 import com.x7.sdk.model.request.MethodCommonRespVerifyRequestBO;
-import com.x7.sdk.model.response.GetGameRoleReportSignResponse;
 import com.x7.sdk.model.response.MethodCommonReqResponse;
 import com.x7.sdk.model.response.SignatureVerifyCommonResponse;
-import com.x7.sdk.service.impl.GameInfoServiceImpl;
 import com.x7.sdk.service.impl.X7MallServiceImpl;
-import com.x7.sdk.util.X7RSAUtil;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import org.apache.commons.codec.binary.Base64;
 import org.junit.Test;
 
 public class X7MallServiceTest {
